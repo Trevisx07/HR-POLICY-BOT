@@ -32,8 +32,8 @@ const uploadBtn = document.getElementById('uploadBtn');
 const policiesList = document.getElementById('policiesList');
 
 // Backend URLs
-const BACKEND_URL = 'http://localhost:8000/chat';
-const ADMIN_URL = 'http://localhost:8000/admin';
+const BACKEND_URL = 'https://hr-policy-bot-o8wj.onrender.com/chat';
+const ADMIN_URL = 'https://hr-policy-bot-o8wj.onrender.com/admin';
 
 
 let isAdminMode = false;
