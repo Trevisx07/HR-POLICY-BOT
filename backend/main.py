@@ -46,12 +46,11 @@ async def serve_Frontend_app():
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  
+    allow_origins=["https://hr-policy-bot-murex.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 SYSTEM_PROMPT = """
 You are Layla, a smart, warm, and friendly HR virtual assistant.
