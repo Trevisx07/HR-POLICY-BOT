@@ -6,4 +6,6 @@ uvicorn
 firebase-admin
 google-cloud-storage
 python-dotenv
-openai
+google.generativeai
+python-docx
+pdfplumber
