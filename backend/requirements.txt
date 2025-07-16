@@ -1,11 +1,6 @@
-setuptools
-wheel
-build
-fastapi
-uvicorn
-firebase-admin
-
-python-dotenv
-google.generativeai
-python-docx
-pdfplumber
+fastapi==0.103.1
+uvicorn==0.23.2
+firebase-admin==6.2.0
+python-dotenv==1.0.0
+google-cloud-storage==2.14.0
+google-crc32c==1.1.2
