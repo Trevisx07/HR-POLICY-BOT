@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PolicyBot - HR Assistant</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
     <meta name="google-signin-client_id" content="YOUR_FIREBASE_APP_ID.apps.googleusercontent.com">
@@ -14,9 +14,9 @@
     <div id="login-container" class="login-container">
         <div class="login-card">
             <div class="logo-container">
-                <div class="logo-circle">
-                    <i class="fas fa-robot"></i>
-                </div>
+                
+                    <img src="layla1.png" alt="Chatbot Icon" style="width: 120px; height: 120px; object-fit: contain;" />
+                
                 <h1>Layla AI</h1>
             </div>
             <div class="company-logo">
@@ -26,22 +26,82 @@
             <button id="googleSignInBtn" class="google-btn">
                 Continue with Google
             </button>
+            <div class="admin-option">
+                <button id="adminLoginBtn" class="admin-btn">
+                    <i class="fas fa-shield-alt"></i>
+                    Login as Admin
+                </button>
+            </div>
             <div class="login-footer">
                 <i class="fas fa-lock"></i> Enterprise-grade security
             </div>
         </div>
     </div>
 
+    <!-- Admin Panel -->
+    <div id="admin-container" class="admin-container">
+        <div class="admin-header">
+            <div class="header-content">
+                <div class="admin-info">
+                    <div class="admin-avatar">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="admin-details">
+                        <h2>Admin Panel</h2>
+                        <p>Policy Management System</p>
+                    </div>
+                </div>
+                <button id="adminSignOutBtn" class="sign-out-btn" title="Sign Out">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </div>
+
+        
+
+        <div class="admin-content">
+            <div class="upload-section">
+                <h3><i class="fas fa-upload"></i> Upload New Policy</h3>
+                <div class="upload-area">
+                    <input type="file" id="fileInput" accept=".pdf,.docx" multiple>
+                    <label for="fileInput" class="upload-label">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Click to upload or drag & drop</span>
+                        <small>Supports PDF and DOCX files</small>
+                    </label>
+                    <button id="uploadBtn" class="upload-btn" disabled>
+                        <i class="fas fa-upload"></i> Upload Files
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="policies-section">
+                
+                <h3><i class="fas fa-file-text"></i> Current Policies</h3>
+                
+                <div id="policiesList" class="policies-list">
+                    
+
+                    <div class="loading-policies">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        Loading policies...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Regular Chat Container -->
     <div id="chat-container" class="chat-container">
         <div class="chat-header">
             <div class="header-content">
                 <div class="bot-avatar">
-                    <div class="avatar-circle">
-                        <i class="fas fa-robot"></i>
-                    </div>
+                    
+                    
                     <div class="chat-logo">
-            <img src="unnamed.png" alt="Company Logo">
-        </div>
+                        <img src="unnamed.png" alt="Company Logo">
+                    </div>
                     <div class="bot-info">
                         <h2>Layla AI</h2>
                         <p>Your AI Layla for Policy Compliance</p>
@@ -55,22 +115,27 @@
 
         <div class="chat-messages" id="chatMessages">
             <div class="welcome-message">
-                <div class="bot-message welcome-bubble">
-                    <p class="message-content">Hello! I'm Layla, your HR policy assistant. How can I help you today?</p>
-                </div>
+                <div class="message-container bot-message-container">
+    <img src="f2.png" alt="Layla Avatar" class="bot-avatar-img">
+    <div class="bot-message">
+        <p class="message-content">Hello! I'm Layla, your HR policy assistant. How can I help you today?</p>
+    </div>
+</div>
+
             </div>
         </div>
 
         <div class="input-container">
             <div class="input-area">
-                <input type="text" id="userInput" placeholder="Ask about HR policies..." autocomplete="off">
+                <input type="text" id="userInput" placeholder="Enter your message..." autocomplete="off">
                 <button id="sendBtn" class="send-button" title="Send">
                     <i class="fas fa-paper-plane"></i>
                 </button>
             </div>
-            <p class="input-hint">Layla AI understands complex HR policy questions</p>
+        
         </div>
     </div>
-    <script src="app.js"></script>
+
+    <script src="./app.js"></script>
 </body>
 </html>
