@@ -39,9 +39,9 @@ app = FastAPI(title="Layla HR Policy Bot")
 
 
 
-@app.get("/")
-async def serve_Frontend_app():
-    return FileResponse("./index.html")
+# @app.get("/")
+# async def serve_Frontend_app():
+#     return FileResponse("./index.html")
 
 
 app.add_middleware(
