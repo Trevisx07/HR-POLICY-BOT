@@ -14,13 +14,18 @@ from typing import List
 from fastapi import UploadFile, File
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
+import json
+import base64
 
 # Load environment variables
 load_dotenv()
 POLICY_TEXT = load_all_policies()
 
 # Initialize app and Firebase
-cred = credentials.Certificate("serviceAccountKey.json")
+
+firebase_creds_str = os.getenv("FIREBASE_CREDS_JSON")
+cred_dict = json.loads(firebase_creds_str)
+cred = credentials.Certificate(cred_dict)
 firebase_admin.initialize_app(cred)
     
 # Configure Gemini
