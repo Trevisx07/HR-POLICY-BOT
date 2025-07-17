@@ -143,13 +143,20 @@ async def get_admin_user(credentials: HTTPAuthorizationCredentials = Depends(sec
         decoded_token = auth.verify_id_token(token)
         email = decoded_token.get('email')
 
-        # Only allow specific admin email
-        if email != 'hetkpatel05@gmail.com':
+        # ✅ Add all allowed admin emails here
+        allowed_admins = [
+            "hetkpatel05@gmail.com",
+            "kanan.y@shaip.com",
+            "careers@raapidinc.com",
+            "het.p@raapidinc.com"
+        ]
+
+        if email not in allowed_admins:
             raise HTTPException(status_code=403, detail="Admin access denied")
 
-        return decoded_token
+        return decoded_token  # Return user info for use in other endpoints
     except Exception as e:
-        raise HTTPException(status_code=401, detail=str(e))
+        raise HTTPException(status_code=401, detail=f"Authentication failed: {str(e)}")
 
 # Admin endpoint to get list of policies
 @app.get("/admin/policies")
