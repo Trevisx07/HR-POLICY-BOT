@@ -44,14 +44,21 @@ auth.onAuthStateChanged((user) => {
     if (user) {
         if (isAdminMode) {
             // Admin login
-            if (user.email === 'hetkpatel05@gmail.com') {
-                showAdminPanel();
-                loadPolicies();
-            } else {
-                // Don't sign out automatically - show message first
-                alert('Admin access denied. Only authorized admin can access this panel.');
-                auth.signOut();
-            }
+            const allowedAdminEmails = [
+    'hetkpatel05@gmail.com',
+    'kanan.y@shaip.com',
+    'careers@raapidinc.com',
+    'het.p@raapidinc.com'
+];
+
+if (allowedAdminEmails.includes(user.email)) {
+    showAdminPanel();
+    loadPolicies();
+} else {
+    alert('Admin access denied. Only authorized admin can access this panel.');
+    auth.signOut();
+}
+
         } else {
             if (user.email && user.email.endsWith('@raapidinc.com')) {
                 showChatInterface();
